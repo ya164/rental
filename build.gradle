@@ -1,0 +1,56 @@
+plugins {
+    id 'org.springframework.boot' version '3.1.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starter Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring Boot Starter Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Spring Boot Starter Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // MySQL Connector
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+
+    // Validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // DevTools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // Actuator
+    implementation 'org.springframework.boot:spring-boot-actuator'
+
+    // JWT Dependencies
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5',
+            'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Lombok (опціонально, для зменшення шаблонного коду)
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
